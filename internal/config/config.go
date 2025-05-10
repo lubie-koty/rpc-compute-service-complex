@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/lubie-koty/rpc-compute-service-simple/internal/util"
+	"github.com/lubie-koty/rpc-compute-service-complex/internal/util"
 )
 
 type Config struct {

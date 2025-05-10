@@ -1,4 +1,4 @@
-module github.com/lubie-koty/rpc-compute-service-simple
+module github.com/lubie-koty/rpc-compute-service-complex
 
 go 1.24.0
 

@@ -1,26 +1,30 @@
 package base
 
-type SimpleMathService struct{}
+import "math"
 
-func NewSimpleMathService() *SimpleMathService {
-	return &SimpleMathService{}
+type ComplexMathService struct{}
+
+func NewComplexMathService() *ComplexMathService {
+	return &ComplexMathService{}
 }
 
-func (s *SimpleMathService) Add(a, b float32) float32 {
-	return a + b
+func (s *ComplexMathService) Sqrt(num float64) float64 {
+	return math.Sqrt(num)
 }
 
-func (s *SimpleMathService) Sub(a, b float32) float32 {
-	return a - b
+func (s *ComplexMathService) Abs(num float64) float64 {
+	return math.Abs(num)
 }
 
-func (s *SimpleMathService) Mul(a, b float32) float32 {
-	return a * b
+func (s *ComplexMathService) Power(base float64, exponent float64) float64 {
+	return math.Pow(base, exponent)
 }
 
-func (s *SimpleMathService) Div(a, b float32) float32 {
-	if b == 0 {
-		return 0
-	}
-	return a / b
+func (s *ComplexMathService) Log(num float64, base float64) float64 {
+	return math.Log(num) / math.Log(base)
+}
+
+func (s *ComplexMathService) Round(num float64, precision int64) float64 {
+	ratio := math.Pow(10, float64(precision))
+	return math.Round(num*ratio) / ratio
 }

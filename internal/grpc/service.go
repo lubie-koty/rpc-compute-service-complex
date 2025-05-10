@@ -3,12 +3,14 @@ package grpc
 import (
 	"context"
 
-	"github.com/lubie-koty/rpc-compute-service-simple/internal/core/types"
-	pb "github.com/lubie-koty/rpc-compute-service-simple/protos"
+	"github.com/lubie-koty/rpc-compute-service-complex/internal/core/types"
+	pb "github.com/lubie-koty/rpc-compute-service-complex/protos"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type GRPCService struct {
-	pb.UnimplementedSimpleComputeServer
+	pb.UnimplementedComplexComputeServer
 	service types.MathService
 }
 
@@ -18,22 +20,22 @@ func NewGRPCService(service types.MathService) *GRPCService {
 	}
 }
 
-func (h *GRPCService) Add(ctx context.Context, request *pb.OperationRequest) (*pb.OperationResponse, error) {
-	result := h.service.Add(request.GetFirstNumber(), request.GetSecondNumber())
-	return &pb.OperationResponse{Result: result}, nil
+func (s *GRPCService) Sqrt(ctx context.Context, req *pb.UnaryRequest) (*pb.OperationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Sqrt not implemented")
 }
 
-func (h *GRPCService) Sub(ctx context.Context, request *pb.OperationRequest) (*pb.OperationResponse, error) {
-	result := h.service.Sub(request.GetFirstNumber(), request.GetSecondNumber())
-	return &pb.OperationResponse{Result: result}, nil
+func (s *GRPCService) Abs(ctx context.Context, req *pb.UnaryRequest) (*pb.OperationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Abs not implemented")
 }
 
-func (h *GRPCService) Mul(ctx context.Context, request *pb.OperationRequest) (*pb.OperationResponse, error) {
-	result := h.service.Mul(request.GetFirstNumber(), request.GetSecondNumber())
-	return &pb.OperationResponse{Result: result}, nil
+func (s *GRPCService) Power(ctx context.Context, req *pb.BinaryRequest) (*pb.OperationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Power not implemented")
 }
 
-func (h *GRPCService) Div(ctx context.Context, request *pb.OperationRequest) (*pb.OperationResponse, error) {
-	result := h.service.Div(request.GetFirstNumber(), request.GetSecondNumber())
-	return &pb.OperationResponse{Result: result}, nil
+func (s *GRPCService) Log(ctx context.Context, req *pb.BinaryRequest) (*pb.OperationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Log not implemented")
+}
+
+func (s *GRPCService) Round(ctx context.Context, req *pb.BinaryRequest) (*pb.OperationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Round not implemented")
 }

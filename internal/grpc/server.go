@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"net"
 
-	pb "github.com/lubie-koty/rpc-compute-service-simple/protos"
+	pb "github.com/lubie-koty/rpc-compute-service-complex/protos"
 	"golang.org/x/sync/errgroup"
 	"google.golang.org/grpc"
 )
@@ -32,7 +32,7 @@ func (s *GRPCServer) Serve() error {
 		return err
 	}
 	server := grpc.NewServer()
-	pb.RegisterSimpleComputeServer(server, s.Service)
+	pb.RegisterComplexComputeServer(server, s.Service)
 
 	s.Logger.Info("gRPC server started", "address", s.Address)
 	g, gCtx := errgroup.WithContext(*s.Context)

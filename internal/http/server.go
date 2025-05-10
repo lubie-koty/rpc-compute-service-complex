@@ -26,10 +26,11 @@ func NewHTTPServer(ctx *context.Context, logger *slog.Logger, httpService *HTTPS
 
 func NewHTTPHandler(httpService *HTTPService) http.Handler {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/add", httpService.Add)
-	mux.HandleFunc("/sub", httpService.Sub)
-	mux.HandleFunc("/mul", httpService.Mul)
-	mux.HandleFunc("/div", httpService.Div)
+	mux.HandleFunc("POST /sqrt", httpService.Sqrt)
+	mux.HandleFunc("POST /abs", httpService.Abs)
+	mux.HandleFunc("POST /power", httpService.Power)
+	mux.HandleFunc("POST /log", httpService.Log)
+	mux.HandleFunc("POST /round", httpService.Round)
 	return mux
 }
 
