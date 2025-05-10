@@ -23,7 +23,7 @@ const (
 
 type UnaryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Number        float32                `protobuf:"fixed32,1,opt,name=number,proto3" json:"number,omitempty"`
+	Number        float64                `protobuf:"fixed64,1,opt,name=number,proto3" json:"number,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -58,7 +58,7 @@ func (*UnaryRequest) Descriptor() ([]byte, []int) {
 	return file_protos_service_complex_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *UnaryRequest) GetNumber() float32 {
+func (x *UnaryRequest) GetNumber() float64 {
 	if x != nil {
 		return x.Number
 	}
@@ -67,8 +67,8 @@ func (x *UnaryRequest) GetNumber() float32 {
 
 type BinaryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	FirstNumber   float32                `protobuf:"fixed32,1,opt,name=first_number,json=firstNumber,proto3" json:"first_number,omitempty"`
-	SecondNumber  int32                  `protobuf:"zigzag32,2,opt,name=second_number,json=secondNumber,proto3" json:"second_number,omitempty"`
+	FirstNumber   float64                `protobuf:"fixed64,1,opt,name=first_number,json=firstNumber,proto3" json:"first_number,omitempty"`
+	SecondNumber  float64                `protobuf:"fixed64,2,opt,name=second_number,json=secondNumber,proto3" json:"second_number,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -103,14 +103,14 @@ func (*BinaryRequest) Descriptor() ([]byte, []int) {
 	return file_protos_service_complex_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *BinaryRequest) GetFirstNumber() float32 {
+func (x *BinaryRequest) GetFirstNumber() float64 {
 	if x != nil {
 		return x.FirstNumber
 	}
 	return 0
 }
 
-func (x *BinaryRequest) GetSecondNumber() int32 {
+func (x *BinaryRequest) GetSecondNumber() float64 {
 	if x != nil {
 		return x.SecondNumber
 	}
@@ -119,7 +119,7 @@ func (x *BinaryRequest) GetSecondNumber() int32 {
 
 type OperationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -154,7 +154,7 @@ func (*OperationResponse) Descriptor() ([]byte, []int) {
 	return file_protos_service_complex_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *OperationResponse) GetResult() float32 {
+func (x *OperationResponse) GetResult() float64 {
 	if x != nil {
 		return x.Result
 	}
@@ -167,12 +167,12 @@ const file_protos_service_complex_proto_rawDesc = "" +
 	"\n" +
 	"\x1cprotos/service-complex.proto\"&\n" +
 	"\fUnaryRequest\x12\x16\n" +
-	"\x06number\x18\x01 \x01(\x02R\x06number\"W\n" +
+	"\x06number\x18\x01 \x01(\x01R\x06number\"W\n" +
 	"\rBinaryRequest\x12!\n" +
-	"\ffirst_number\x18\x01 \x01(\x02R\vfirstNumber\x12#\n" +
-	"\rsecond_number\x18\x02 \x01(\x11R\fsecondNumber\"+\n" +
+	"\ffirst_number\x18\x01 \x01(\x01R\vfirstNumber\x12#\n" +
+	"\rsecond_number\x18\x02 \x01(\x01R\fsecondNumber\"+\n" +
 	"\x11OperationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result2\xf4\x01\n" +
+	"\x06result\x18\x01 \x01(\x01R\x06result2\xf4\x01\n" +
 	"\x0eComplexCompute\x12+\n" +
 	"\x04Sqrt\x12\r.UnaryRequest\x1a\x12.OperationResponse\"\x00\x12*\n" +
 	"\x03Abs\x12\r.UnaryRequest\x1a\x12.OperationResponse\"\x00\x12-\n" +
