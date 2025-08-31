@@ -21,6 +21,9 @@ func (s *ComplexMathService) Power(base float64, exponent float64) float64 {
 }
 
 func (s *ComplexMathService) Log(num float64, base float64) float64 {
+	if num <= 0 || base <= 0 || base == 1 {
+		return math.NaN()
+	}
 	return math.Log(num) / math.Log(base)
 }
 

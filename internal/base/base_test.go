@@ -22,12 +22,12 @@ var s ComplexMathService
 func TestBaseSqrt(t *testing.T) {
 	tests := []UnaryTestCase{
 		{
-			Name:     "x^2 should be x",
+			Name:     "x^1/2 should be x",
 			Input:    4,
 			Expected: 2,
 		},
 		{
-			Name:     "x^2 should be x",
+			Name:     "x^1/2 should be x",
 			Input:    9,
 			Expected: 3,
 		},
